@@ -11,7 +11,7 @@ public class Question1StepDef {
     private static int count = 0;
 
     @Given("{string} {string} {string} {string} {string} should match the DB record")
-    public void should_match_yhe_db_record(String customer_id, String fullname, String city, String country, String sum) {
+    public void should_match_the_db_record(String customer_id, String fullname, String city, String country, String sum) {
         String query = "SELECT customer.customer_id, CONCAT (first_name, ' ', last_name) AS fullname,city,country,SUM(amount)\n" +
                 "FROM customer\n" +
                 "JOIN payment ON payment.customer_id = customer.customer_id\n" +

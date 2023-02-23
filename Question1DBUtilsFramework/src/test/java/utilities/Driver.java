@@ -11,7 +11,7 @@ public class Driver {
     private static final Duration IMPLICIT_WAIT_TIME_IN_SECONDS = Duration.ofSeconds(20);
     private static final Duration IMPLICIT_PAGE_LOAD_TIMEOUT = Duration.ofSeconds(20);
 
-    public Driver() {
+    private Driver() {
     }
 
     private static WebDriver driver;
