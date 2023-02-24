@@ -8,6 +8,8 @@ import org.openqa.selenium.TakesScreenshot;
 import utilities.DBUtils;
 import utilities.Driver;
 
+import java.sql.SQLException;
+
 public class Hooks {
     @Before
     public void setUp() {
@@ -18,6 +20,17 @@ public class Hooks {
     public void setUpDBConnection() {
         System.out.println("I am setting up the DB Connection!");
         DBUtils.createConnection();
+    }
+
+    @After("@db")
+    public static void tearDownDBConnection(){
+        System.out.println("I am closing the DB Connection!!!");
+        try {
+            DBUtils.destroy();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @After
